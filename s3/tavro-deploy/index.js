@@ -30,12 +30,7 @@ exports.handler = (event, context, callback) => {
                 params[param.Name] = param.Value;
             });
 
-            //var mailer = mailgun.client({username: 'api', key: params['MAILGUN_API_KEY']});
-            var mailer = mailgun.client({
-                username: 'api',
-                key: params['tavro.mail.mailgun_api_key'],
-                public_key: params['tavro.mail.mailgun_public_key']
-            });
+            var mailer = mailgun.client({username: 'api', key: params['tavro.mail.mailgun_api_key']});
 
             // Get the object from the event and show its content type
             const bucket = event.Records[0].s3.bucket.name;
@@ -49,11 +44,11 @@ exports.handler = (event, context, callback) => {
             }, (err, data) => {
                 if (err) {
                     //console.log(err);
-                    const message = "Error getting object ${key} from bucket ${bucket}. Make sure they exist and your bucket is in the same region as this function.";
+                    const message = "Error getting object " + key + " from bucket " + bucket + ". Make sure they exist and your bucket is in the same region as this function.";
                     console.log(message);
                     callback(message);
                 } else {
-                    mailer.messages.create('dev@zoadilack.com', {
+                    mailer.messages.create('zoadilack.com', {
                         from: "Zoadilack <dev@zoadilack.com>",
                         to: ["dev@zoadilack.com"],
                         subject: "New Tavro Build: " + key,
