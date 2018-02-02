@@ -3,7 +3,6 @@
 const aws = require('aws-sdk');
 const promise = require('bluebird');
 const mailgun = require('mailgun.js');
-const awsParamStore = require('aws-param-store');
 
 const ssm = promise.promisifyAll(new aws.SSM());
 const s3 = new aws.S3({ apiVersion: '2006-03-01' });
