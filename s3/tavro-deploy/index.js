@@ -13,8 +13,8 @@ exports.handler = (event, context, callback) => {
 
     let options = {
         Names: [
-            'tavro.mail.mailgun_api_key',
-            'tavro.mail.mailgun_public_key'
+            'litwicki.mail.mailgun_api_key',
+            'litwicki.mail.mailgun_public_key'
         ],
         WithDecryption: true
     };
@@ -30,7 +30,7 @@ exports.handler = (event, context, callback) => {
                 params[param.Name] = param.Value;
             });
 
-            var mailer = mailgun.client({username: 'api', key: params['tavro.mail.mailgun_api_key']});
+            var mailer = mailgun.client({username: 'api', key: params['litwicki.mail.mailgun_api_key']});
 
             // Get the object from the event and show its content type
             const bucket = event.Records[0].s3.bucket.name;
@@ -48,12 +48,12 @@ exports.handler = (event, context, callback) => {
                     console.log(message);
                     callback(message);
                 } else {
-                    mailer.messages.create('zoadilack.com', {
-                        from: "Zoadilack <dev@zoadilack.com>",
-                        to: ["dev@zoadilack.com"],
-                        subject: "New Tavro Build: " + key,
-                        text: "A new Tavro build is complete: " + url,
-                        html: "<h1>New Tavro Build</h1><p>A new Tavro build is complete: " + url + "</p>"
+                    mailer.messages.create('litwicki.com', {
+                        from: "litwicki <dev@litwicki.com>",
+                        to: ["dev@litwicki.com"],
+                        subject: "New litwicki Build: " + key,
+                        text: "A new litwicki build is complete: " + url,
+                        html: "<h1>New litwicki Build</h1><p>A new litwicki build is complete: " + url + "</p>"
                     })
                     .then(msg => console.log(msg)) // logs response data
                     .catch(err => console.log(err)); // logs any error 

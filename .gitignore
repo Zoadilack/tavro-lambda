@@ -1,4 +1,6 @@
 *.zip
-s3/tavro-deploy/node_modules
+node_modules
 .DS_Store
 .idea
+/*/node_modules
+/*/*/node_modules
