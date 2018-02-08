@@ -1,0 +1,22 @@
+{
+  "name": "tavro-lambda-get-node",
+  "version": "1.0.0",
+  "description": "Tavro API: /api/v1/nodes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jake Litwicki <jake.litwicki@gmail.com>",
+  "license": "Copyright (c) 2018",
+  "dependencies": {
+    "amazon-cognito-identity-js": "^1.31.0",
+    "aws-param-env": "^1.2.0",
+    "aws-param-store": "^1.1.0",
+    "aws-sdk": "^2.188.0",
+    "aws-ssm-params": "^1.0.2",
+    "bluebird": "^3.5.1",
+    "install": "^0.10.4",
+    "npm": "^5.6.0",
+    "ssm-params": "0.0.6"
+  }
+}
