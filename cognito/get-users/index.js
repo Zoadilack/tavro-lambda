@@ -44,7 +44,7 @@ exports.handler = (event, context, callback) => {
                     console.log('successful' + JSON.stringify(data));
                 } else {
                     console.log('error ' + error);
-                }         // successful response
+                }
             });
 
         }

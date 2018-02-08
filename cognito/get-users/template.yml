@@ -8,7 +8,7 @@ Resources:
       Handler: index.handler
       Runtime: nodejs6.10
       CodeUri: s3://tavro-lambda/cognito-get-users.zip
-      Policies: AmazonS3ReadOnlyAccess
+      Policies: AmazonCognitoReadOnly
       Events:
         PhotoUpload:
           Type: S3
